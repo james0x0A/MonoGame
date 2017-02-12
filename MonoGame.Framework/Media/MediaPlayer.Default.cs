@@ -135,7 +135,7 @@ namespace Microsoft.Xna.Framework.Media
         {
             // Loop through so that we reset the PlayCount as well
             foreach (var song in Queue.Songs)
-                _queue.ActiveSong.Stop();
+                song.Stop();
         }
     }
 }
