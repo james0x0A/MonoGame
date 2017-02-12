@@ -128,6 +128,11 @@ namespace Microsoft.Xna.Framework.Media
         /// </summary>
         public static void Play(Song song, TimeSpan? startPosition)
         {
+            if (song == null)
+            {
+                throw new ArgumentNullException("song", "This method does not accept null for this parameter.");
+            }
+
             var previousSong = _queue.Count > 0 ? _queue[0] : null;
             _queue.Clear();
             _numSongsInQueuePlayed = 0;
@@ -142,6 +147,11 @@ namespace Microsoft.Xna.Framework.Media
 
 		public static void Play(SongCollection collection, int index = 0)
 		{
+            if (collection == null)
+            {
+                throw new ArgumentNullException("collection", "This method does not accept null for this parameter.");
+            }
+
             _queue.Clear();
             _numSongsInQueuePlayed = 0;
 
