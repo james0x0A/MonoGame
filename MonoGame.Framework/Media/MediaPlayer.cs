@@ -222,7 +222,14 @@ namespace Microsoft.Xna.Framework.Media
                 return;
 
             PlatformStop();
+            _queue.ActiveSongIndex = -1;
 			State = MediaState.Stopped;
+
+            if(ActiveSongChanged != null)
+            {
+                ActiveSongChanged.Invoke(null, EventArgs.Empty);
+            }
+
 		}
 		
 		public static void MoveNext()
